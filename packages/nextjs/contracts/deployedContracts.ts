@@ -4,6 +4,1311 @@
  */
 import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 
-const deployedContracts = {} as const;
+const deployedContracts = {
+  31337: {
+    SupplyChain: {
+      address: "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+      abi: [
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "lotId",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "address",
+              name: "distributor",
+              type: "address",
+            },
+          ],
+          name: "Distributed",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "lotId",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "address",
+              name: "exporter",
+              type: "address",
+            },
+          ],
+          name: "Exported",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "lotId",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "address",
+              name: "harvester",
+              type: "address",
+            },
+          ],
+          name: "Harvested",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "lotId",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "address",
+              name: "importer",
+              type: "address",
+            },
+          ],
+          name: "Imported",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "lotId",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "address",
+              name: "processor",
+              type: "address",
+            },
+          ],
+          name: "Processed",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "lotId",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "address",
+              name: "toaster",
+              type: "address",
+            },
+          ],
+          name: "Roasted",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "lotId",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "address",
+              name: "store",
+              type: "address",
+            },
+          ],
+          name: "Sold",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "lotId",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "address",
+              name: "provider",
+              type: "address",
+            },
+          ],
+          name: "provided",
+          type: "event",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "idLotHarv",
+              type: "uint256",
+            },
+            {
+              internalType: "address",
+              name: "providerAccount",
+              type: "address",
+            },
+            {
+              internalType: "string",
+              name: "place",
+              type: "string",
+            },
+            {
+              internalType: "uint256",
+              name: "amount",
+              type: "uint256",
+            },
+          ],
+          name: "addProvider",
+          outputs: [],
+          stateMutability: "payable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "string",
+              name: "a",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "b",
+              type: "string",
+            },
+          ],
+          name: "compareStrings",
+          outputs: [
+            {
+              internalType: "bool",
+              name: "",
+              type: "bool",
+            },
+          ],
+          stateMutability: "pure",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "idLotProv",
+              type: "uint256",
+            },
+            {
+              internalType: "address",
+              name: "exportAccount",
+              type: "address",
+            },
+            {
+              internalType: "string",
+              name: "place",
+              type: "string",
+            },
+            {
+              internalType: "uint256",
+              name: "amount",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "certificate",
+              type: "uint256",
+            },
+          ],
+          name: "exportLot",
+          outputs: [],
+          stateMutability: "payable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "id",
+              type: "uint256",
+            },
+          ],
+          name: "getExportOrder",
+          outputs: [
+            {
+              components: [
+                {
+                  internalType: "uint256",
+                  name: "idLotProvider",
+                  type: "uint256",
+                },
+                {
+                  internalType: "uint256",
+                  name: "idLotExport",
+                  type: "uint256",
+                },
+                {
+                  internalType: "address",
+                  name: "provider",
+                  type: "address",
+                },
+                {
+                  internalType: "address",
+                  name: "export",
+                  type: "address",
+                },
+                {
+                  internalType: "string",
+                  name: "place",
+                  type: "string",
+                },
+                {
+                  internalType: "uint256",
+                  name: "date",
+                  type: "uint256",
+                },
+                {
+                  internalType: "uint256",
+                  name: "certificateId",
+                  type: "uint256",
+                },
+                {
+                  components: [
+                    {
+                      internalType: "uint256",
+                      name: "amount",
+                      type: "uint256",
+                    },
+                    {
+                      internalType: "uint256",
+                      name: "price",
+                      type: "uint256",
+                    },
+                  ],
+                  internalType: "struct SupplyChain.Bill",
+                  name: "bill",
+                  type: "tuple",
+                },
+              ],
+              internalType: "struct SupplyChain.Export",
+              name: "",
+              type: "tuple",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "idLot",
+              type: "uint256",
+            },
+          ],
+          name: "getHarvesterOrder",
+          outputs: [
+            {
+              components: [
+                {
+                  internalType: "uint256",
+                  name: "idLotHarvester",
+                  type: "uint256",
+                },
+                {
+                  internalType: "address",
+                  name: "harvester",
+                  type: "address",
+                },
+                {
+                  internalType: "string",
+                  name: "place",
+                  type: "string",
+                },
+                {
+                  internalType: "uint256",
+                  name: "date",
+                  type: "uint256",
+                },
+                {
+                  internalType: "uint256",
+                  name: "amount",
+                  type: "uint256",
+                },
+                {
+                  internalType: "enum SupplyChain.TypeCofee",
+                  name: "typeCoffe",
+                  type: "uint8",
+                },
+              ],
+              internalType: "struct SupplyChain.Harvester",
+              name: "",
+              type: "tuple",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "harvester",
+              type: "address",
+            },
+          ],
+          name: "getHarvesterOrders",
+          outputs: [
+            {
+              components: [
+                {
+                  internalType: "uint256",
+                  name: "idLotHarvester",
+                  type: "uint256",
+                },
+                {
+                  internalType: "address",
+                  name: "harvester",
+                  type: "address",
+                },
+                {
+                  internalType: "string",
+                  name: "place",
+                  type: "string",
+                },
+                {
+                  internalType: "uint256",
+                  name: "date",
+                  type: "uint256",
+                },
+                {
+                  internalType: "uint256",
+                  name: "amount",
+                  type: "uint256",
+                },
+                {
+                  internalType: "enum SupplyChain.TypeCofee",
+                  name: "typeCoffe",
+                  type: "uint8",
+                },
+              ],
+              internalType: "struct SupplyChain.Harvester[]",
+              name: "",
+              type: "tuple[]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "account",
+              type: "address",
+            },
+          ],
+          name: "getOrdersExport",
+          outputs: [
+            {
+              components: [
+                {
+                  internalType: "uint256",
+                  name: "idLotProvider",
+                  type: "uint256",
+                },
+                {
+                  internalType: "uint256",
+                  name: "idLotExport",
+                  type: "uint256",
+                },
+                {
+                  internalType: "address",
+                  name: "provider",
+                  type: "address",
+                },
+                {
+                  internalType: "address",
+                  name: "export",
+                  type: "address",
+                },
+                {
+                  internalType: "string",
+                  name: "place",
+                  type: "string",
+                },
+                {
+                  internalType: "uint256",
+                  name: "date",
+                  type: "uint256",
+                },
+                {
+                  internalType: "uint256",
+                  name: "certificateId",
+                  type: "uint256",
+                },
+                {
+                  components: [
+                    {
+                      internalType: "uint256",
+                      name: "amount",
+                      type: "uint256",
+                    },
+                    {
+                      internalType: "uint256",
+                      name: "price",
+                      type: "uint256",
+                    },
+                  ],
+                  internalType: "struct SupplyChain.Bill",
+                  name: "bill",
+                  type: "tuple",
+                },
+              ],
+              internalType: "struct SupplyChain.Export[]",
+              name: "",
+              type: "tuple[]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "id",
+              type: "uint256",
+            },
+          ],
+          name: "getProviderOrder",
+          outputs: [
+            {
+              components: [
+                {
+                  internalType: "uint256",
+                  name: "idLotHarvester",
+                  type: "uint256",
+                },
+                {
+                  internalType: "uint256",
+                  name: "idLotProvider",
+                  type: "uint256",
+                },
+                {
+                  internalType: "address",
+                  name: "harvester",
+                  type: "address",
+                },
+                {
+                  internalType: "address",
+                  name: "provider",
+                  type: "address",
+                },
+                {
+                  internalType: "string",
+                  name: "place",
+                  type: "string",
+                },
+                {
+                  internalType: "uint256",
+                  name: "date",
+                  type: "uint256",
+                },
+                {
+                  internalType: "uint256",
+                  name: "amount",
+                  type: "uint256",
+                },
+              ],
+              internalType: "struct SupplyChain.Provider",
+              name: "",
+              type: "tuple",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "providerAccount",
+              type: "address",
+            },
+          ],
+          name: "getProviderOrdersByAddress",
+          outputs: [
+            {
+              components: [
+                {
+                  internalType: "uint256",
+                  name: "idLotHarvester",
+                  type: "uint256",
+                },
+                {
+                  internalType: "uint256",
+                  name: "idLotProvider",
+                  type: "uint256",
+                },
+                {
+                  internalType: "address",
+                  name: "harvester",
+                  type: "address",
+                },
+                {
+                  internalType: "address",
+                  name: "provider",
+                  type: "address",
+                },
+                {
+                  internalType: "string",
+                  name: "place",
+                  type: "string",
+                },
+                {
+                  internalType: "uint256",
+                  name: "date",
+                  type: "uint256",
+                },
+                {
+                  internalType: "uint256",
+                  name: "amount",
+                  type: "uint256",
+                },
+              ],
+              internalType: "struct SupplyChain.Provider[]",
+              name: "",
+              type: "tuple[]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "harvesterAccount",
+              type: "address",
+            },
+            {
+              internalType: "string",
+              name: "place",
+              type: "string",
+            },
+            {
+              internalType: "uint256",
+              name: "amount",
+              type: "uint256",
+            },
+            {
+              internalType: "string",
+              name: "typeCoffe",
+              type: "string",
+            },
+          ],
+          name: "registerHarvest",
+          outputs: [],
+          stateMutability: "payable",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {},
+    },
+    Tracking: {
+      address: "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+      abi: [
+        {
+          inputs: [],
+          stateMutability: "nonpayable",
+          type: "constructor",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "address",
+              name: "sender",
+              type: "address",
+            },
+            {
+              indexed: true,
+              internalType: "address",
+              name: "receptor",
+              type: "address",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "fechaCreacion",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "tipo",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "cantidad",
+              type: "uint256",
+            },
+          ],
+          name: "RamAssembled",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "address",
+              name: "sender",
+              type: "address",
+            },
+            {
+              indexed: true,
+              internalType: "address",
+              name: "receptor",
+              type: "address",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "fechaEnvio",
+              type: "uint256",
+            },
+          ],
+          name: "RamDelivered",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "address",
+              name: "sender",
+              type: "address",
+            },
+            {
+              indexed: true,
+              internalType: "address",
+              name: "receptor",
+              type: "address",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "fechaCreacion",
+              type: "uint256",
+            },
+          ],
+          name: "RamEnviada",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "address",
+              name: "sender",
+              type: "address",
+            },
+            {
+              indexed: true,
+              internalType: "address",
+              name: "receptor",
+              type: "address",
+            },
+          ],
+          name: "RamPacked",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "address",
+              name: "sender",
+              type: "address",
+            },
+            {
+              indexed: true,
+              internalType: "address",
+              name: "receptor",
+              type: "address",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "amount",
+              type: "uint256",
+            },
+          ],
+          name: "RamPaid",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "address",
+              name: "sender",
+              type: "address",
+            },
+            {
+              indexed: true,
+              internalType: "address",
+              name: "receptor",
+              type: "address",
+            },
+          ],
+          name: "RamProgrammed",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "address",
+              name: "sender",
+              type: "address",
+            },
+            {
+              indexed: true,
+              internalType: "address",
+              name: "receptor",
+              type: "address",
+            },
+          ],
+          name: "RamTested",
+          type: "event",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "_sender",
+              type: "address",
+            },
+            {
+              internalType: "address",
+              name: "_receptor",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "_index",
+              type: "uint256",
+            },
+          ],
+          name: "completeRam",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "_receptor",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "_fechaCreacion",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "_tipo",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "_cantidad",
+              type: "uint256",
+            },
+          ],
+          name: "createRam",
+          outputs: [],
+          stateMutability: "payable",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "getAllTransactions",
+          outputs: [
+            {
+              components: [
+                {
+                  internalType: "address",
+                  name: "sender",
+                  type: "address",
+                },
+                {
+                  internalType: "address",
+                  name: "receptor",
+                  type: "address",
+                },
+                {
+                  internalType: "uint256",
+                  name: "fechaCreacion",
+                  type: "uint256",
+                },
+                {
+                  internalType: "uint256",
+                  name: "fechaEnvio",
+                  type: "uint256",
+                },
+                {
+                  internalType: "uint256",
+                  name: "tipo",
+                  type: "uint256",
+                },
+                {
+                  internalType: "uint256",
+                  name: "cantidad",
+                  type: "uint256",
+                },
+                {
+                  internalType: "enum Tracking.RamStatus",
+                  name: "status",
+                  type: "uint8",
+                },
+                {
+                  internalType: "bool",
+                  name: "isPaid",
+                  type: "bool",
+                },
+              ],
+              internalType: "struct Tracking.TypeRam[]",
+              name: "",
+              type: "tuple[]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "_sender",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "_index",
+              type: "uint256",
+            },
+          ],
+          name: "getRam",
+          outputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+            {
+              internalType: "enum Tracking.RamStatus",
+              name: "",
+              type: "uint8",
+            },
+            {
+              internalType: "bool",
+              name: "",
+              type: "bool",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "_sender",
+              type: "address",
+            },
+          ],
+          name: "getRamsCount",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "_sender",
+              type: "address",
+            },
+            {
+              internalType: "address",
+              name: "_receptor",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "_index",
+              type: "uint256",
+            },
+          ],
+          name: "packedRam",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "_sender",
+              type: "address",
+            },
+            {
+              internalType: "address",
+              name: "_receptor",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "_index",
+              type: "uint256",
+            },
+          ],
+          name: "programmedRam",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "ramCount",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          name: "rams",
+          outputs: [
+            {
+              internalType: "address",
+              name: "sender",
+              type: "address",
+            },
+            {
+              internalType: "address",
+              name: "receptor",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "fechaCreacion",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "fechaEnvio",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "tipo",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "cantidad",
+              type: "uint256",
+            },
+            {
+              internalType: "enum Tracking.RamStatus",
+              name: "status",
+              type: "uint8",
+            },
+            {
+              internalType: "bool",
+              name: "isPaid",
+              type: "bool",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "_sender",
+              type: "address",
+            },
+            {
+              internalType: "address",
+              name: "_receptor",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "_index",
+              type: "uint256",
+            },
+          ],
+          name: "startRam",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "_sender",
+              type: "address",
+            },
+            {
+              internalType: "address",
+              name: "_receptor",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "_index",
+              type: "uint256",
+            },
+          ],
+          name: "testRam",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {},
+    },
+    YourContract: {
+      address: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+      abi: [
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "_owner",
+              type: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+          type: "constructor",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "address",
+              name: "greetingSetter",
+              type: "address",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "newGreeting",
+              type: "string",
+            },
+            {
+              indexed: false,
+              internalType: "bool",
+              name: "premium",
+              type: "bool",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "value",
+              type: "uint256",
+            },
+          ],
+          name: "GreetingChange",
+          type: "event",
+        },
+        {
+          inputs: [],
+          name: "greeting",
+          outputs: [
+            {
+              internalType: "string",
+              name: "",
+              type: "string",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "owner",
+          outputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "premium",
+          outputs: [
+            {
+              internalType: "bool",
+              name: "",
+              type: "bool",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "string",
+              name: "_newGreeting",
+              type: "string",
+            },
+          ],
+          name: "setGreeting",
+          outputs: [],
+          stateMutability: "payable",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "totalCounter",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          name: "userGreetingCounter",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "withdraw",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          stateMutability: "payable",
+          type: "receive",
+        },
+      ],
+      inheritedFunctions: {},
+    },
+  },
+} as const;
 
 export default deployedContracts satisfies GenericContractsDeclaration;
